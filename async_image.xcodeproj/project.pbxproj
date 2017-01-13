@@ -14,6 +14,7 @@
 		C39DFFA81E0D6DFD00560A79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C39DFFA61E0D6DFD00560A79 /* LaunchScreen.storyboard */; };
 		C39DFFB31E0D6DFD00560A79 /* async_imageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39DFFB21E0D6DFD00560A79 /* async_imageTests.swift */; };
 		C39DFFBE1E0D6DFD00560A79 /* async_imageUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39DFFBD1E0D6DFD00560A79 /* async_imageUITests.swift */; };
+		C39DFFCC1E17EB9E00560A79 /* TwitchDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39DFFCB1E17EB9E00560A79 /* TwitchDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		C39DFFB91E0D6DFD00560A79 /* async_imageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = async_imageUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C39DFFBD1E0D6DFD00560A79 /* async_imageUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = async_imageUITests.swift; sourceTree = "<group>"; };
 		C39DFFBF1E0D6DFD00560A79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C39DFFCB1E17EB9E00560A79 /* TwitchDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitchDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				C39DFF9D1E0D6DFD00560A79 /* AppDelegate.swift */,
 				C39DFF9F1E0D6DFD00560A79 /* ViewController.swift */,
+				C39DFFCB1E17EB9E00560A79 /* TwitchDetails.swift */,
 				C39DFFA11E0D6DFD00560A79 /* Main.storyboard */,
 				C39DFFA41E0D6DFD00560A79 /* Assets.xcassets */,
 				C39DFFA61E0D6DFD00560A79 /* LaunchScreen.storyboard */,
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C39DFFA01E0D6DFD00560A79 /* ViewController.swift in Sources */,
+				C39DFFCC1E17EB9E00560A79 /* TwitchDetails.swift in Sources */,
 				C39DFF9E1E0D6DFD00560A79 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -512,6 +516,7 @@
 				C39DFFC41E0D6DFD00560A79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C39DFFC51E0D6DFD00560A79 /* Build configuration list for PBXNativeTarget "async_imageTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +525,7 @@
 				C39DFFC71E0D6DFD00560A79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C39DFFC81E0D6DFD00560A79 /* Build configuration list for PBXNativeTarget "async_imageUITests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +534,7 @@
 				C39DFFCA1E0D6DFD00560A79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

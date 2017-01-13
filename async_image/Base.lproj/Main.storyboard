@@ -13,11 +13,11 @@
         <scene sceneID="t1X-7e-33i">
             <objects>
                 <tableViewController id="vef-ur-tCs" customClass="ViewController" customModule="async_image" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="K1Z-ip-tP4">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="K1Z-ip-tP4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="separatorColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="1" green="0.59999999999999998" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tblCell" textLabel="RwV-Dy-9G2" detailTextLabel="wdo-YZ-bXo" style="IBUITableViewCellStyleSubtitle" id="wQo-wf-A4K">
@@ -45,6 +45,9 @@
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <segue destination="G1S-mt-Om6" kind="show" identifier="twitchVids" id="yzJ-3t-seU"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -57,6 +60,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ePb-CM-o4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1172" y="224.4377811094453"/>
+        </scene>
+        <!--Twitch Details-->
+        <scene sceneID="fT6-ql-lA2">
+            <objects>
+                <viewController id="G1S-mt-Om6" customClass="TwitchDetails" customModule="async_image" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6vZ-VS-8su"/>
+                        <viewControllerLayoutGuide type="bottom" id="tw7-Et-R4J"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fW8-Fi-OKL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" semanticContentAttribute="playback" scalesPageToFit="YES" suppressesIncrementalRendering="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ac-Pp-Qcf">
+                                <rect key="frame" x="0.0" y="64" width="320" height="440"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="9ac-Pp-Qcf" firstAttribute="centerX" secondItem="fW8-Fi-OKL" secondAttribute="centerX" id="GOP-cf-Faz"/>
+                            <constraint firstItem="9ac-Pp-Qcf" firstAttribute="top" secondItem="6vZ-VS-8su" secondAttribute="bottom" id="jjb-m8-iQt"/>
+                            <constraint firstItem="9ac-Pp-Qcf" firstAttribute="leading" secondItem="fW8-Fi-OKL" secondAttribute="leading" id="kfk-T8-e2w"/>
+                            <constraint firstItem="9ac-Pp-Qcf" firstAttribute="centerY" secondItem="fW8-Fi-OKL" secondAttribute="centerY" id="vL3-V6-vB5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="videoWebView" destination="9ac-Pp-Qcf" id="haE-2g-w3V"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B3b-Oa-SI0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2026.875" y="223.94366197183098"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UkM-re-4be">
