@@ -12,6 +12,7 @@ import WebKit
 class TwitchDetails: UIViewController {
     
     var _videoID: String!
+    var _title: String!
         
     @IBOutlet weak var videoWebView: WKWebView!
     
@@ -19,13 +20,13 @@ class TwitchDetails: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(_videoID)
         
-        
-        let url = NSURL(string: _videoID)
+       /* let url = NSURL(string: (_videoID))
         let request = NSURLRequest(url:url! as URL)
         videoWebView.load(request as URLRequest)
         
-        
+        */
     }
     
 }

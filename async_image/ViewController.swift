@@ -18,9 +18,10 @@ class ViewController: UITableViewController {
     var session: URLSession!
     var cache:NSCache<AnyObject, AnyObject>!
     
+    var vidId:String!
+    
     var valueToPass: String!
     
-
     
 
     override func viewDidLoad() {
@@ -35,9 +36,12 @@ class ViewController: UITableViewController {
         self.refreshCtrl = UIRefreshControl()
         self.refreshCtrl.addTarget(self, action: #selector(ViewController.refreshTableView), for: .valueChanged)
         self.refreshControl = self.refreshCtrl
+        refreshCtrl.backgroundColor = UIColor.orange
+        refreshCtrl.tintColor = UIColor.black
         
-        
+       // self.tableData = [[String : AnyObject]]() as [AnyObject]!
         self.tableData = []
+
         self.cache = NSCache()
         
         refreshTableView()
@@ -89,33 +93,34 @@ class ViewController: UITableViewController {
         return self.tableData.count
     }
     
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-    print("You selected cell #\(indexPath.row)!")
+   
     
-    // Get Cell Label
-    let indexPath = tableView.indexPathForSelectedRow!
-    let currentCell = tableView.cellForRow(at: indexPath)! as UITableViewCell
-    
-    valueToPass = currentCell.detailTextLabel?.text
-    performSegue(withIdentifier: "twitchVids", sender: self)
-    }
-    
-     func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+     func prepareForSegue(segue: UIStoryboardSegue, sender: Any?){
         
         if (segue.identifier == "twitchVids") {
+            
+            if let indexPath = tableView.indexPathForSelectedRow {
+                
+            
             // initialize new view controller and cast it as your view controller
             let viewController = segue.destination as! TwitchDetails
             // your new view controller should have property that will store passed value
-            viewController._videoID = valueToPass
+            
+            
+            let valuesToPass = self.tableData[indexPath.row]
+            
+                viewController._videoID = valuesToPass["_id"] as? String
+                viewController._title = valuesToPass["title"] as? String
+            
+            }
         }
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier:"tblCell", for: indexPath)
-        let dictionary = self.tableData[(indexPath as NSIndexPath).row] as! [String:AnyObject]
+        let dictionary = self.tableData[indexPath.row]
         
-        let videoID = dictionary["url"] as? String
-        print(videoID!)
+        
         
         cell.textLabel!.text = dictionary["title"] as? String
         cell.detailTextLabel!.text = dictionary["url"] as? String
@@ -124,7 +129,7 @@ class ViewController: UITableViewController {
         
         if (self.cache.object(forKey: (indexPath as IndexPath).row as AnyObject) != nil) {
             print("cached image used, no need to download it")
-            cell.imageView?.image = self.cache.object(forKey: (indexPath as NSIndexPath).row as AnyObject) as? UIImage
+            cell.imageView?.image = self.cache.object(forKey: (indexPath as IndexPath).row as AnyObject) as? UIImage
         }else {
             let videoImage = dictionary["preview"] as! String
             let url:URL! = URL(string: videoImage)
@@ -135,7 +140,7 @@ class ViewController: UITableViewController {
                         if let updateCell = tableView.cellForRow(at: indexPath) {
                             let img:UIImage! = UIImage(data: data)
                             updateCell.imageView?.image = img
-                            self.cache.setObject(img, forKey: (indexPath as NSIndexPath).row as AnyObject)
+                            self.cache.setObject(img, forKey: (indexPath as IndexPath).row as AnyObject)
                         }
                 })
         }
